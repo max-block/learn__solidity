@@ -3,14 +3,24 @@ pragma solidity ^0.7.0;
 
 contract Test {
 
-    int256 value;
+    int256 public value;
+    address private owner;
 
-    constructor () public {
+    event ValueChanged(int256 newValue);
+
+    modifier onlyOwner() {
+        require(msg.sender == owner, "only owner can do it");
+        _;
+    }
+
+    constructor () {
+        owner = msg.sender;
         value = 10;
     }
 
-    function setValue(int256 _value) public {
-        value = _value;
+    function setValue(int256 newValue) public {
+        value = newValue;
+        emit ValueChanged(newValue);
     }
 
     function getDoubleValueAndBlockNumber() public view returns (int256 doubleValue, uint256 blockNumber) {

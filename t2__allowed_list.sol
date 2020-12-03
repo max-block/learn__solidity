@@ -10,7 +10,7 @@ contract Test {
         _;
     }
 
-    constructor () public {
+    constructor () {
         allowed.push(msg.sender);
     }
 

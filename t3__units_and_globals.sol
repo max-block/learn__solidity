@@ -5,7 +5,7 @@ contract Test {
 
     int256 value;
 
-    constructor () public {
+    constructor () {
         value = 10;
     }
 

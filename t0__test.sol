@@ -3,7 +3,7 @@ pragma solidity ^0.7.0;
 
 contract Test {
 
-    constructor () public {
+    constructor () {
 
     }
 
